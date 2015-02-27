@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- The number of lines in the suggestions dropdown in landscape -->
+    <integer name="max_suggest_lines_landscape">5</integer>
+    <!-- The number of lines in the suggestions dropdown in portrait -->
+    <integer name="max_suggest_lines_portrait">4</integer>
+</resources>

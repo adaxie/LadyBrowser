@@ -1,0 +1,11 @@
+#ignore gen/
+gen/
+
+#ignore bin/
+bin/
+
+#ignore proguard-project.txt
+proguard-project.txt
+
+#ignore project.properties
+project.properties
