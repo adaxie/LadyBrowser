@@ -1,5 +1,9 @@
-package com.mobile.ladybrowser;
+package com.mobile.ladybrowser.titlebar;
 
+import com.mobile.ladybrowser.BaseUi;
+import com.mobile.ladybrowser.R;
+import com.mobile.ladybrowser.R.id;
+import com.mobile.ladybrowser.R.layout;
 import com.mobile.ladybrowser.view.PageProgressView;
 import com.mobile.ladybrowser.view.UrlInputView;
 

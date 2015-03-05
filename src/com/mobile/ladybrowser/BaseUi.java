@@ -1,5 +1,7 @@
 package com.mobile.ladybrowser;
 
+import com.mobile.ladybrowser.titlebar.TitleBar;
+
 import android.app.Activity;
 import android.view.Gravity;
 import android.view.LayoutInflater;

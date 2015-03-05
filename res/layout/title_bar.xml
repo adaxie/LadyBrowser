@@ -1,87 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/titlebar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    
-    <LinearLayout 
-        android:orientation="horizontal"
-        android:id="@+id/urlbar"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/titlebar_height"
-        android:paddingLeft="2dp"
-        android:paddingRight="2dp"
-        android:paddingTop="2dp">
-        
-        <ImageView
-            android:id="@+id/favicon"
-            android:layout_width="32dip"
-            android:layout_height="32dip"
-            android:paddingLeft="4dip"
-            android:paddingRight="8dip"
-            android:layout_gravity="center"
-            android:src="@drawable/default_favicon"/>
-        
-        <ImageView
-            android:id="@+id/lock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"/>
-
-        <ImageView
-            android:id="@+id/stop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_stop"
-            android:visibility="gone"/>
-
-        <com.mobile.ladybrowser.view.UrlInputView
-            android:id="@+id/url"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:hint="@string/search_hint"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:lines="1"
-            android:scrollHorizontally="true"
-            android:inputType="textUri"
-            android:imeOptions="actionGo|flagNoExtractUi|flagNoFullscreen"
-            style="@style/Suggestions"
-            android:background="@null"
-            />
-
-        <!-- <ImageView
-            android:id="@+id/refresh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_refresh"/> -->
-
-        <ImageView
-            android:id="@+id/voice"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/voice_search"
-            android:visibility="gone"/>
-
-        <ImageView
-            android:id="@+id/clear"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/close_window"
-            android:visibility="gone"/>
+        android:orientation="horizontal"
+        android:paddingLeft="7.0dip"
+        android:paddingTop="6.0dip"
+        android:paddingRight="7.0dip"
+        android:paddingBottom="6.0dip">
+<!--         <TextView
+            android:id="@+id/urlinput"
+            android/> -->
     </LinearLayout>
-
-    <com.mobile.ladybrowser.view.PageProgressView
-        android:id="@+id/progress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/urlbar"
-        android:src="@drawable/progress"
-        android:layout_marginTop="@dimen/progress_bar_margin"
-        android:visibility="gone"/>
 </RelativeLayout>

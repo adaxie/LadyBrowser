@@ -11,8 +11,7 @@
         <FrameLayout
             android:id="@+id/fixed_titlebar_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_title_bar"/>
+            android:layout_height="wrap_content"/>
         
         <FrameLayout
             android:id="@+id/main_content"
