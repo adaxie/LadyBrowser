@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<com.mobile.ladybrowser.titlebar.TitleBar
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
+        android:id="@+id/titlebar_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/titlebar_height"
         android:orientation="horizontal"
@@ -12,8 +13,25 @@
         android:paddingTop="6.0dip"
         android:paddingRight="7.0dip"
         android:paddingBottom="6.0dip">
-<!--         <TextView
+        <com.mobile.ladybrowser.view.UrlInputView
             android:id="@+id/urlinput"
-            android/> -->
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/url_background"
+            android:paddingLeft="7.0dip"
+            android:paddingRight="7.0dip"
+            android:singleLine="true"
+            android:hint="@string/search_hint"
+            android:textSize="16.0sp"/>
     </LinearLayout>
-</RelativeLayout>
+
+    <com.mobile.ladybrowser.view.PageProgressView
+        android:id="@+id/progressbar"
+        android:layout_below="@id/titlebar_bg"
+        android:src="@drawable/progress"
+        android:visibility="gone"
+        android:background="@null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</com.mobile.ladybrowser.titlebar.TitleBar>

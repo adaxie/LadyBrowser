@@ -40,7 +40,6 @@ public class BaseUi {
         mFixedTitlebarContainer = (FrameLayout)frameLayout.findViewById(R.id.fixed_titlebar_container);
         mContentView = (FrameLayout)frameLayout.findViewById(R.id.main_content);
         mToolBar = (FrameLayout)frameLayout.findViewById(R.id.tool_bar);
-        mTitleBar = new TitleBar(browser, this);
     }
     
     public void addTitleBar(View view) {

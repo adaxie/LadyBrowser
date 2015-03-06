@@ -9,6 +9,7 @@ import com.mobile.ladybrowser.view.UrlInputView;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -23,43 +24,27 @@ public class TitleBar extends RelativeLayout{
 
     private PageProgressView mProgress;
     private UrlInputView mUrlInput;
-    private ImageView mFavicon;
-    private ImageView mStop;
-    private ImageView mRefresh;
-    private ImageView mVoice;
-    private ImageView mClear;
 
-    private BaseUi mBaseUi;
+
 
     //state
     private boolean mIsFixedTitleBar;
     private boolean mInLoad;
 
-    public TitleBar(Context context, BaseUi ui) {
-        super(context, null);
-        mBaseUi = ui;
-        initLayout(context);
-        setTitleBar();
+    public TitleBar(Context context) {
+        super(context);
     }
 
-    private void initLayout(Context context) {
-        LayoutInflater factory = LayoutInflater.from(context);
-        factory.inflate(R.layout.title_bar, this);
-        mFavicon = (ImageView)findViewById(R.id.favicon);
-        mStop = (ImageView)findViewById(R.id.stop);
-        mUrlInput = (UrlInputView)findViewById(R.id.url);
-        //mRefresh = (ImageView)findViewById(R.id.refresh);
-        mVoice = (ImageView)findViewById(R.id.voice);
-        mClear = (ImageView)findViewById(R.id.clear);
-        mProgress = (PageProgressView) findViewById(R.id.progress);
+    public TitleBar(Context context, AttributeSet attr) {
+        super(context, null);
+    }
+
+    public TitleBar(Context ctx, AttributeSet attr, int defStyle) {
+        super(ctx, attr, defStyle);
     }
 
     public PageProgressView getProgressView() {
         return mProgress;
-    }
-
-    private void setTitleBar() {
-        mBaseUi.addTitleBar(this);
     }
 
    //Update the progress, from 0 to 100;
