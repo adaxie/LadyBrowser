@@ -8,11 +8,13 @@
         android:id="@+id/titlebar_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/titlebar_height"
+        android:background="@drawable/address_background_underline"
         android:orientation="horizontal"
         android:paddingLeft="7.0dip"
         android:paddingTop="6.0dip"
         android:paddingRight="7.0dip"
         android:paddingBottom="6.0dip">
+
         <com.mobile.ladybrowser.view.UrlInputView
             android:id="@+id/urlinput"
             android:layout_width="match_parent"
@@ -23,6 +25,7 @@
             android:singleLine="true"
             android:hint="@string/search_hint"
             android:textSize="16.0sp"/>
+
     </LinearLayout>
 
     <com.mobile.ladybrowser.view.PageProgressView
