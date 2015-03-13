@@ -11,6 +11,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -18,40 +19,18 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 
-public class TitleBar extends RelativeLayout{
+public class TitleBar {
 
-    private static final int PROGRESS_MAX = 100;
+    private Context mContext;
+    
+    private RelativeLayout mTitleBarView;
 
-    private PageProgressView mProgress;
-    private UrlInputView mUrlInput;
-
-
-
-    //state
-    private boolean mIsFixedTitleBar;
-    private boolean mInLoad;
-
-    public TitleBar(Context context) {
-        super(context);
+    public TitleBar(Context ctx) {
+        mContext = ctx;
+        mTitleBarView = (RelativeLayout)LayoutInflater.from(mContext).inflate(R.layout.title_bar, null);
     }
-
-    public TitleBar(Context context, AttributeSet attr) {
-        super(context, null);
+    
+    public View getTitleBarView() {
+        return mTitleBarView;
     }
-
-    public TitleBar(Context ctx, AttributeSet attr, int defStyle) {
-        super(ctx, attr, defStyle);
-    }
-
-    public PageProgressView getProgressView() {
-        return mProgress;
-    }
-
-   //Update the progress, from 0 to 100;
-    public void setProgress(int newProgress) {
-        if (newProgress >= PROGRESS_MAX) {
-            
-        }
-    }
-
 }
