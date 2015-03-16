@@ -12,6 +12,7 @@ public class BrowserActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mController = createController();
+        mController.start();
     }
 
     @Override

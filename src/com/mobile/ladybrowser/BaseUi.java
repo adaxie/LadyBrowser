@@ -3,15 +3,18 @@ package com.mobile.ladybrowser;
 import com.mobile.ladybrowser.titlebar.TitleBar;
 
 import android.app.Activity;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 
 public class BaseUi {
     private static final String LOGTAG = "BaseUi";
+
+    private FrameLayout.LayoutParams COVER_SCREEN_PARAM = new FrameLayout.LayoutParams(
+            LayoutParams.MATCH_PARENT,
+            LayoutParams.MATCH_PARENT);
 
     private Activity mActivity;
     private Controller mController;
@@ -37,7 +40,34 @@ public class BaseUi {
         mFixedTitleBarContainer.addView(mTitleBar.getTitleBarView());
     }
     
-    private void attachTabToContentView() {
-        
+    private void attachTabToContentView(Tab tab) {
+        if (tab == null || tab.getWebView() == null) {
+            return;
+        }
+        WebView webview = tab.getWebView();
+        ViewGroup parent = (ViewGroup)webview.getParent();
+        if (parent != null && parent != mContentView) {
+            parent.removeView(webview);
+        }
+        mContentView.addView(webview);
+    }
+    
+    private void removeTabFromContentView(Tab tab) {
+        if (tab == null || tab.getWebView() == null) {
+            return;
+        }
+        WebView webview = tab.getWebView();
+        ViewGroup parent = (ViewGroup)webview.getParent();
+        if (mContentView == parent) {
+            mContentView.removeView(webview);
+        }
+    }
+    
+    public void attachTab(Tab tab) {
+        attachTabToContentView(tab);
+    }
+    
+    public void removeTab(Tab tab) {
+        removeTabFromContentView(tab);
     }
 }
