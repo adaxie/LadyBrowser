@@ -32,7 +32,7 @@ public class BaseUi {
         mFixedTitleBarContainer = (FrameLayout) frameLayout.findViewById(R.id.fixed_titlebar_container);
         mContentView = (FrameLayout)frameLayout.findViewById(R.id.main_content);
         mToolBar = (FrameLayout)frameLayout.findViewById(R.id.tool_bar);
-        mTitleBar = new TitleBar(browser);
+        mTitleBar = new TitleBar(browser, controller);
         attachTitleBar();
     }
 
@@ -50,6 +50,7 @@ public class BaseUi {
             parent.removeView(webview);
         }
         mContentView.addView(webview);
+        webview.requestFocus();
     }
     
     private void removeTabFromContentView(Tab tab) {
@@ -69,5 +70,13 @@ public class BaseUi {
     
     public void removeTab(Tab tab) {
         removeTabFromContentView(tab);
+    }
+    
+    public void setActiveTab(Tab tab) {
+        onTabDataChanged(tab);
+    }
+    
+    private void onTabDataChanged(Tab tab) {
+        mTitleBar.setDisplayUrlTitle(tab);
     }
 }

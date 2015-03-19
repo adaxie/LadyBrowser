@@ -1,5 +1,6 @@
 package com.mobile.ladybrowser;
 
+import android.graphics.Bitmap;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -10,10 +11,12 @@ public class Tab {
 
     final private Controller mController;
     private WebView mWebView;
+    PageState mCurrentState;
     
     public Tab(WebView w, Controller controller) {
-        setWebView(w);
         mController = controller;
+        mCurrentState = new PageState("");
+        setWebView(w);
     }
 
     final private WebViewClient mWebViewClient = new WebViewClient(){
@@ -41,6 +44,31 @@ public class Tab {
     }
 
     public void loadUrl(String url) {
+        mCurrentState.setUrl(url);
         mWebView.loadUrl(url);
+    }
+
+    public String getUrl() {
+        return mCurrentState.mUrl;
+    }
+
+    private static class PageState {
+        String mUrl;
+        String mOriginalUrl;
+        String mTitle;
+        int mProgress;
+        Bitmap mFavicon;
+        
+        PageState(String url) {
+            mUrl = mOriginalUrl = url;
+        }
+
+        void setUrl(String url) {
+            mUrl = url;
+        }
+        
+        void setOriginalUrl(String originalUrl) {
+            mOriginalUrl = originalUrl;
+        }
     }
 }

@@ -25,11 +25,20 @@ public class Controller {
         return tab;
     }
 
+    private void setActiveTab(Tab tab) {
+        mUi.setActiveTab(tab);
+    }
+
+    public void loadUrl(String url) {
+        
+    }
+
     public Tab openTabToHomePage(String url, boolean incognito) {
         Tab tab = createNewTab(incognito);
         if (tab != null && url != null) {
             tab.loadUrl(url);
         }
+        setActiveTab(tab);
         return tab;
     }
 
