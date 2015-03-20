@@ -76,7 +76,7 @@ public class BaseUi {
         onTabDataChanged(tab);
     }
     
-    private void onTabDataChanged(Tab tab) {
+    public void onTabDataChanged(Tab tab) {
         mTitleBar.setDisplayUrlTitle(tab);
     }
 }

@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -48,14 +49,17 @@ public class TitleBar implements OnEditorActionListener{
 
     public void setDisplayUrlTitle(Tab tab) {
         String url = tab.getUrl();
-        mUrlInputView.setText(url);
+        String currentUrl = mUrlInputView.getText().toString();
+        if (currentUrl != url) {
+            mUrlInputView.setText(url);
+        }
     }
 
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        if (actionId == KeyEvent.KEYCODE_ENTER) {
+        if (actionId == EditorInfo.IME_ACTION_GO) {
             String url = v.getText().toString();
-            mController.
+            mController.loadUrl(url);
         }
         return true;
     }

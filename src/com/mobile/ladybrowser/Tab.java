@@ -23,8 +23,19 @@ public class Tab {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            // TODO Auto-generated method stub
             return super.shouldOverrideUrlLoading(view, url);
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            syncState(view);
+            mController.getWebViewController().onPageStarted(Tab.this, view);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            syncState(view);
+            mController.getWebViewController().onPageFinished(Tab.this, view);
         }
 
     };
@@ -39,12 +50,20 @@ public class Tab {
         w.setWebViewClient(mWebViewClient);
     }
 
+    private void syncState(WebView w) {
+        mCurrentState.mUrl = w.getUrl();
+        mCurrentState.mTitle = w.getTitle();
+        mCurrentState.mOriginalUrl = w.getOriginalUrl();
+        mCurrentState.mFavicon = w.getFavicon();
+        mCurrentState.mProgress = w.getProgress();
+    }
+
     public WebView getWebView() {
         return mWebView;
     }
 
     public void loadUrl(String url) {
-        mCurrentState.setUrl(url);
+        mCurrentState.mUrl = url;
         mWebView.loadUrl(url);
     }
 
@@ -53,22 +72,14 @@ public class Tab {
     }
 
     private static class PageState {
-        String mUrl;
-        String mOriginalUrl;
-        String mTitle;
-        int mProgress;
-        Bitmap mFavicon;
-        
-        PageState(String url) {
-            mUrl = mOriginalUrl = url;
-        }
+        private String mUrl;
+        private String mOriginalUrl;
+        private String mTitle;
+        private int mProgress;
+        private Bitmap mFavicon;
 
-        void setUrl(String url) {
-            mUrl = url;
-        }
-        
-        void setOriginalUrl(String originalUrl) {
-            mOriginalUrl = originalUrl;
+        PageState(String url)  {
+            mUrl = mOriginalUrl = url;
         }
     }
 }
